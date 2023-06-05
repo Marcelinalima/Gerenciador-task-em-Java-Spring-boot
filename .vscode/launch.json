@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GerenciadortaskApplication<gerenciadortask>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.com.ml.gerenciadortask.GerenciadortaskApplication",
+            "projectName": "gerenciadortask",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
