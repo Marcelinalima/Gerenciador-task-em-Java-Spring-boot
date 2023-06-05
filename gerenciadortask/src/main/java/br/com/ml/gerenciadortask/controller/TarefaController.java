@@ -9,29 +9,37 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.ml.gerenciadortask.model.dto.TarefaInserirDto;
+
+import br.com.ml.gerenciadortask.model.dto.TarefaInserirDTO;
 import br.com.ml.gerenciadortask.model.entidades.Tarefa;
 import br.com.ml.gerenciadortask.service.TarefaService;
 import jakarta.validation.Valid;
 import lombok.Getter;
 
 
+
 @Controller
 @RequestMapping("/tarefas")
 public class TarefaController{
+ 
+    @Autowired
+    @Getter
+    private TarefaService TarefaService;
     
-    @Autowired @Getter
-    private TarefaService service;
+   
 
-    @GetMapping("/form-tarefas")
-    public String loadFormulario(Model model){
+    @GetMapping("/form-tarefa")
+    public String formTarefa(Model model){
         model.addAttribute("tarefa", new Tarefa());
+    
         return "form-tarefa";
 
     }
-    @PostMapping
-    public String salvar( @ModelAttribute("tarefa") @Valid TarefaInserirDto tarefa) throws Exception{
-        getService().salvar(tarefa);
+    
+    @PostMapping("/save")
+    public String salvarTarefa(@ModelAttribute("tarefa") @Valid TarefaInserirDTO tarefa) throws Exception{
+      
+        getTarefaService().salvar(tarefa);
         return "form-tarefa";
     }
    

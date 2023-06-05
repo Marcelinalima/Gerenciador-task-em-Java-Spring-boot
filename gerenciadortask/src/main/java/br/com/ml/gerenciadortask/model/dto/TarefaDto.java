@@ -1,17 +1,15 @@
 package br.com.ml.gerenciadortask.model.dto;
 
-
-
 import java.time.LocalDate;
 
-import lombok.Builder;
+import jakarta.persistence.Id;
+
 import lombok.Data;
 
-
 @Data
-@Builder
-public class TarefaDto {
+public class TarefaDTO {
 
+ @Id
     private Long id;
 
     private String descricao;
