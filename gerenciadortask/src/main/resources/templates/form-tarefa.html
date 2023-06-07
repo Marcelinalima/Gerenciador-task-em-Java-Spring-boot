@@ -24,8 +24,8 @@
                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                 data-mdb-toggle="dropdown" aria-expanded="false">Relação de Tarefas</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="/tarefas/new-tarefa"> NewTarefa</a></li>
-                <li><a class="dropdown-item" href="/tarefas/list-tarefas"> Listar Tarefas</a></li>
+                <li><a class="dropdown-item" href="/tarefas/new-tarefa"> New Tarefa</a></li>
+                <li><a class="dropdown-item" href="/tarefas/lista-tarefa">Listar Tarefa</a></li>
               </ul>
             </li>
            </ul>
@@ -36,48 +36,75 @@
             <div class="col-8">
             <div class="">Relação das Tarefas</div>
             <div class="card-body">
-           
-            <form th:action="@{/tarefas/save}" method="post" th:object="${tarefa}">
-              <div class="row">
-                <div class="row mt-3 mb-5">
-                <div class="col-8"> 
-              <label for="descricao">Descrição:</label>
-              <input type="text" class="form-control" id="descricao"  placeholder="Descricao..." th:field="*{descricao}"/>
-             
-             </div>
-            </div>
+          
+              <form th:action="@{/tarefas}" method="post" th:object="${tarefa}">
+                
+                <div class="row">
+                  <div class="row mt-3 mb-5">
+                    <div class="col-8"> 
+                      <label for="nome">Nome da Tarefa:</label>
+                      <input type="text"  id="nome" class="form-control" th:field="*{nome}" th:classppend="${#fields.hasErrors('nome') ? 'is-invalid': ''}" />
+                      
+                  </div>
+                  <span th:errors="*{nome}" style="color: rgb(245, 4, 4);"></span>
+                  </div>
             
-              <div class="row mt-3 mb-5">
-                <div class="col-4"> 
-                <label for="status"> Filtrar por Status:</label>
-                <select class="form-control" id="status"  placeholder="Status..." th:field="*{status}" />
-                    <option value="pendente">Pendente</option>
-                    <option value="em progresso">Em Progresso</option>
-                    <option value="concluida">Concluída</option>
-                </select>
-              </div>
-              </div>
-
                 <div class="row mt-3 mb-5">
-                  <div class="col-3"> 
-                    <label for="dataConclusao">Data de Conclusão:</label>
-                    <input type="date" class="form-control" id="dataConclusao" placeholder="Dataconclusao.." th:field="*{dataConclusao}"/>
+                  <label for="status"> Filtrar Status:</label>
+                  <div class="col-8"> 
                 </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="FiltroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).PENDENTE}" id="chkPendente" th:field="*{filtrosStatus}" />
+                  <label class="form-check-label" for="chkPendente">Pendente</label>
                 </div>
-                  <div>
-                  <button type="submit" class="btn btn-danger btn-rounded">Salvar</button>
-                  <button type="reset" class="btn btn-success btn-rounded">Limpar</button>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="FiltroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).PROGRESSO}"id="chkProgresso"  th:field="*{filtrosStatus}"  />
+                  <label class="form-check-label" for="chkProgresso">Progresso</label>
                 </div>
-            </div>  
-          </div>  
-        </div> 
-    </div>
-              <div class="row mt-2 mb-2 text-center bg-gradient">
-                    <footer>
-                      <p class="copyright">&copy; Copyright Marcelina Lima - Programa Transforme-se 2023 - Projeto final Spring Boot Java- Gerenciador de Tarefas- </p>
-                    </footer>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="FiltroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).CANCELADA}"id="chkCancelada"  th:field="*{filtrosStatus}"  />
+                  <label class="form-check-label" for="chkCancelada">Cancelada</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox"  name="FiltroStatus"  th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).CONCLUIDA}"id= "chkConcluida"  th:field="*{filtrosStatus}"  />
+                  <label class="form-check-label" for="chkConcluida">Concluida</label>
+                </div>
               </div>
-         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
-         
+            </div>
+           <!--  <div class="row mt-3 mb-5">
+              <span th:errors="*{filtrosStatus}" style="color: rgb(245, 4, 4);"></span>
+            </div> -->
+                <div class="row mt-3 mb-5">
+                  <div class="col-4"> 
+                    <label for="dataConclusao">Data de Conclusão:</label>
+                    <input type="date" class="form-control" id="dataConclusao" name="Dataconclusao"placeholder="Dataconclusao.." th:field="*{dataConclusao}" th:classppend="${#fields.hasErrors('dataConclusao') ? 'is-invalid': ''}" />
+                  </div>
+                  <span th:errors="*{dataConclusao}" style="color: rgb(245, 4, 4);"></span>
+                </div>
+            
+                    <button type="submit" class="btn btn-danger btn-rounded">Salvar</button>
+                    <button type="reset" class="btn btn-success btn-rounded">Limpar</button>
+                  
+                </div>
+                </div>
+                 
+          
+              </form>
+           </div>  
+        </div>  
+  </div>
+            <div class="row mt-2 mb-2 text-center bg-gradient">
+                  <footer>
+                    <p class="copyright">&copy; Copyright Marcelina Lima - Programa Transforme-se 2023 - Projeto final Spring Boot Java- Gerenciador de Tarefas- </p>
+                  </footer>
+            </div>
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
+       
 </body>
 </html>
+
+               
