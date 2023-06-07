@@ -58,7 +58,8 @@ public class TarefaService {
             Long idTarefa =Long.parseLong(id);
             repository.deleteById(idTarefa);
         }
-        public void removerPeloId(String id) {
+        
+        public void deletePeloId(String id) {
         }
              
                     

@@ -44,9 +44,9 @@ public class TarefaController{
          }
           return "form-tarefa";
       }
-      @GetMapping("/remover")
+      @GetMapping("/delete")
       public String deletar(@PathParam("id") String id){
-        service.removerPeloId(id);
+        service.deletePeloId(id);
         return "/lista-tarefa";
       }
        
