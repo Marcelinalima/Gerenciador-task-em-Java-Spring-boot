@@ -47,7 +47,7 @@ Requisitos técnicos:
   As informaçoes passadas no formulario direcionam para as tabelas no banco de dados.
   
   # Andamento do projeto
-   Falta alguns ajustes na funcionalidade do sistema.
+   Faltam alguns ajustes nas funcionalidades do sistema.
  
       
    # A avaliação prática me permitiu perceber o quanto ainda preciso melhorar meus conhecimentos: 
