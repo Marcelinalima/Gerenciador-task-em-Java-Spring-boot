@@ -1,21 +1,19 @@
-                          <h1 align="center"> Programa Transforme-se  </h1>
+                         <h1 align="center"> Programa Transforme-se </h1>
 
 ![Logo-mulher cadeirante do programa Transforme-se](https://github.com/Marcelinalima/Gerenciador-task-em-Java-Spring-boot/assets/98188325/4d0f518c-499d-4ae8-ac42-c935bd6ae3c6)
 
-# O programa transforme-se da Serasa Experian, com apoio educacional e tecnologico da wise Hands promoveu a inclusão de Pessoas com Deficiências,
-no mercado de trabalho. 
+# O programa transforme-se da Serasa Experian, com apoio educacional e tecnologico da wise Hands promoveu a inclusão de Pessoas com Deficiências,no mercado de trabalho. 
   
-  <h1 align="center"> Java</h1>
+                               <h1 align="center"> Java</h1>
   
  #  Repositorio/ - Gerenciador-task-em-Java-Spring-boot
-
  
-## Foi proposto uma avaliação pratica de Java com Spring MVC, Thymealeaf e frontend em Bootstrap. 
+  Foi proposto uma avaliação pratica de Java com Spring MVC, Thymealeaf e frontend em Bootstrap. 
   1. Criar um sistema de gerenciamento de tarefas.
   - O sistema tem que permitir que os usuários cadastrem, atualizem, visualizem e excluam tarefas.
   Cada tarefa com um título, descrição, status (pendente, em progresso ou concluída) e data de conclusão.
 
-## Requisitos técnicos:
+#Requisitos técnicos:
   a. Utilizar o Spring MVC para criar o backend da aplicação.
   b. Utilizar o Thymeleaf como mecanismo de template para renderizar as páginas.
   c. Implementar o frontend utilizando o Bootstrap para criar uma interface responsiva
@@ -37,16 +35,12 @@ no mercado de trabalho.
   4. Implementação de filtro de pesquisa: adicionar um campo de pesquisa que
       permita aos usuários filtrar as tarefas por título ou descrição.
       
+ <h1 align="center" Habilidades no projeto final></h1>
 
- #<h1 align="center" Habilidades no projeto final></h1>
-
- # Com as Aulas do professor dei inicio o projeto Gerenciamento de tarefas -
-   Seguindo as informações passadas em aulas.
-   
-  Implementando o frontend utilizando o Bootstrap com uma interface responsiva.
-  Fiz a pagina FrontEnd, com Home, Formulario e lista de tarefas,
-  com título, descrição, status (pendente,progresso, concluida, e com data de conclusão.
-  
+  Iniciei o projeto Gerenciamento de tarefas - Seguindo as informações passadas em aulas.
+  Implementei o frontend utilizando o Bootstrap com uma interface responsiva.
+  Fiz a pagina a FrontEnd, com Home, Formulario e lista de tarefas,
+  com título, descrição, status (pendente,progresso, concluida, e com data de conclusão. 
   O usuario pode criar novas tarefas, preencher titulo, descrição, status e data de conclusão.
   Para visualizar a tarefa, clicar na lista de tarefas e as informações passadas sao exibidas.
   Implementei o Banco de dados h2/console.
