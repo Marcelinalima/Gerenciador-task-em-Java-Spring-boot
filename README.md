@@ -13,7 +13,7 @@
   - O sistema tem que permitir que os usuários cadastrem, atualizem, visualizem e excluam tarefas.
   Cada tarefa com um título, descrição, status (pendente, em progresso ou concluída) e data de conclusão.
 
-#Requisitos técnicos:
+Requisitos técnicos:
   a. Utilizar o Spring MVC para criar o backend da aplicação.
   b. Utilizar o Thymeleaf como mecanismo de template para renderizar as páginas.
   c. Implementar o frontend utilizando o Bootstrap para criar uma interface responsiva
@@ -50,7 +50,7 @@
    Falta alguns ajustes na funcionalidade do sistema.
  
       
-   ## A avaliação prática me permitiu perceber o quanto ainda preciso melhorar meus conhecimentos: 
+   # A avaliação prática me permitiu perceber o quanto ainda preciso melhorar meus conhecimentos: 
    Tivemos uma a grande quantidade de conteudo nas aulas de #JAVA#, 
    e devido ao pouco tempo para praticar encontrei dificuldades na avaliação final.
   
