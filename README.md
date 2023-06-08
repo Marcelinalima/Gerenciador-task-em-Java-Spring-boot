@@ -1,13 +1,13 @@
-##<h1 align="center"> Programa Transforme-se  </h1
+                          <h1 align="center"> Programa Transforme-se  </h1>
+
 ![Logo-mulher cadeirante do programa Transforme-se](https://github.com/Marcelinalima/Gerenciador-task-em-Java-Spring-boot/assets/98188325/4d0f518c-499d-4ae8-ac42-c935bd6ae3c6)
 
-# O programa transforme-se da Serasa Experian, com apoio educacional e tecnologico da wise Hands promoveu a inclusão de Pessoas com Deficiencias,
+# O programa transforme-se da Serasa Experian, com apoio educacional e tecnologico da wise Hands promoveu a inclusão de Pessoas com Deficiências,
 no mercado de trabalho. 
   
-       ##<h1 align="center"> Java</h1>
- ## Sobre o Repositorio - Gerenciador-task-em-Java-Spring-boot-
- ##  O repositorio  foi destinado ao Projeto Final do curso de java.
-![logo-java](https://github.com/Marcelinalima/Gerenciador-task-em-Java-Spring-boot/assets/98188325/93b1731f-21aa-4b8f-a24b-354d89935f33)
+  <h1 align="center"> Java</h1>
+  
+ #  Repositorio/ - Gerenciador-task-em-Java-Spring-boot
 
  
 ## Foi proposto uma avaliação pratica de Java com Spring MVC, Thymealeaf e frontend em Bootstrap. 
@@ -63,6 +63,6 @@ no mercado de trabalho.
     
    # A prática me permitirá melhorar e buscar mais conhecimento diariamente.
    
-
+![logo-java](https://github.com/Marcelinalima/Gerenciador-task-em-Java-Spring-boot/assets/98188325/93b1731f-21aa-4b8f-a24b-354d89935f33)
 
  
