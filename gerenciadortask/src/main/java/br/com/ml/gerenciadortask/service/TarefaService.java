@@ -54,16 +54,13 @@ public class TarefaService {
             .collect(Collectors.toList());
 
         }
-        public void deleteById(String id) {
-            Long idTarefa =Long.parseLong(id);
-            repository.deleteById(idTarefa);
+        public void removerPeloId(Long id) {
+            repository.deleteById(id);
         }
+        public void deleteById(Long id) {
+        }
+    }    
         
-        public void deletePeloId(String id) {
-        }
-             
-                    
-        }
        
         
 

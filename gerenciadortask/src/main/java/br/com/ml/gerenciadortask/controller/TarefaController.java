@@ -30,7 +30,7 @@ public class TarefaController{
         model.addAttribute("tarefa", new Tarefa());
         return "form-tarefa";
     }
-    @GetMapping
+    @GetMapping("/lista-tarefa")
     public String findAll(Model model){
       model.addAttribute("tarefas", service.findAll());
       return "lista-tarefa";
@@ -45,8 +45,8 @@ public class TarefaController{
           return "form-tarefa";
       }
       @GetMapping("/delete")
-      public String deletar(@PathParam("id") String id){
-        service.deletePeloId(id);
+      public String deletar(@PathParam("id") Long id){
+        service.deleteById(id);
         return "/lista-tarefa";
       }
        

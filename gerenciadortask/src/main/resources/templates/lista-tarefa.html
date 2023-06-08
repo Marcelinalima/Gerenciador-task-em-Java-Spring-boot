@@ -21,7 +21,7 @@
         <div class="container-fluid">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="tarefa" href="#">Home</a>
             </li>
             
             <li class="nav-item dropdown">
@@ -30,7 +30,7 @@
 
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="/tarefas/new-tarefa"> New Tarefa</a></li>
-                <li><a class="dropdown-item" href="/tarefas/lista-tarefa">Listar Tarefas</a></li>
+                <li><a class="dropdown-item" href="/tarefas/listar-tarefa">Listar Tarefas</a></li>
               </ul>
             </li>
           </ul>
@@ -55,11 +55,12 @@
             <td th:text="${tarefa.status}"></td>
             <td th:text="${tarefa.dataConclusao}"></td>
             <td th:text="${tarefa.filtrosStatus}"></td>  
-          </tr>
-              <a th:href="@{/tarefas/delete(id=${tarefa.id})}" class="btn btn-danger">Excluir</a>
-      </tbody>
-      
+          </tr>         
+      </tbody> 
     </table>
+            <a class="btn btn-warning" >editar</a>
+            <a class="btn btn-danger" >excluir</a>
+  
     </div>
   </div>  
   <div class="row mt-2 mb-2 text-center bg-gradient">
