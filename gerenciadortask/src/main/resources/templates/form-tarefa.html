@@ -1,109 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet"/>  
-    <title>Tarefa</title>
-       
-</head>
-<body id ="fundo">
-    <div class="p-3  mt-3 mb-2 bg-secondary bg-gradient text-dark">
-       <nav class="navbar navbar-expand-lg navbar-light ">
-         <div class="container" id="fundo-branco">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" aria-current="tarefa" href="#">Home</a></li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                data-mdb-toggle="dropdown" aria-expanded="false">Relação de Tarefas</a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="/tarefas/new-tarefa"> New Tarefa</a></li>
-                <li><a class="dropdown-item" href="/tarefas/lista-tarefa">Listar Tarefa</a></li>
-              </ul>
-            </li>
-           </ul>
-         </div>
-       </nav>
-          
+<head th:replace="~{fragmentos :: head ('Tarefas > Inserir ou Atualizar uma Tarefa')}"></head>
+
+
+<body >
+  <div class="p-3 mb-2 bg-info bg-gradient text-dark">
+    <header th:replace="~{fragmentos :: navBar}"></header>
+      <div class="p-3  mt-3 mb-2 bg-secondary bg-gradient text-dark">
+        <div class="container mt-5">
           <div class="row mt-3 mb-5 justify-content-center">
             <div class="col-8">
             <div class="">Relação das Tarefas</div>
             <div class="card-body">
           
-              <form th:action="@{/tarefas}" method="post" th:object="${tarefa}">
-                
-                <div class="row">
+            <form th:action="@{/tarefas}" method="post" th:object="${tarefa}">
+                    <input type="hidden" th:field="*{id}">
+                 <div class="row">
                   <div class="row mt-3 mb-5">
                     <div class="col-8"> 
                       <label for="nome">Nome da Tarefa:</label>
-                      <input type="text"  id="nome" class="form-control" th:field="*{nome}" th:classppend="${#fields.hasErrors('nome') ? 'is-invalid': ''}" />
-                      
-                  </div>
-                  <span th:errors="*{nome}" style="color: rgb(245, 4, 4);"></span>
-                  </div>
+                      <input type="text"  id="nome" class="form-control" th:field="*{nome}"/>    
             
-                <div class="row mt-3 mb-5">
-                  <label for="status"> Filtrar Status:</label>
-                  <div class="col-8"> 
-                </div>
+                  <div class="row mt-3 mb-5">
+                    <label for="status"> Filtrar Status:</label>
+                    <div class="col-8"></div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus"  />
+                    <label class="form-check-label" for="chkPendente">Pendente</label>
+                  </div>
 
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="FiltroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).PENDENTE}" id="chkPendente" th:field="*{filtrosStatus}" />
-                  <label class="form-check-label" for="chkPendente">Pendente</label>
-                </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus" />
+                    <label class="form-check-label" for="chkProgresso">Progresso</label>
+                  </div>
 
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="FiltroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).PROGRESSO}"id="chkProgresso"  th:field="*{filtrosStatus}"  />
-                  <label class="form-check-label" for="chkProgresso">Progresso</label>
-                </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus"  />
+                    <label class="form-check-label" for="chkCancelada">Cancelada</label>
+                  </div>
 
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="FiltroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).CANCELADA}"id="chkCancelada"  th:field="*{filtrosStatus}"  />
-                  <label class="form-check-label" for="chkCancelada">Cancelada</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox"  name="FiltroStatus"  th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).CONCLUIDA}"id= "chkConcluida"  th:field="*{filtrosStatus}"  />
-                  <label class="form-check-label" for="chkConcluida">Concluida</label>
-                </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox"  name="FiltroStatus" id="chkConcluida"/>
+                    <label class="form-check-label" for="chkConcluida">Concluida</label>
+                  </div>
+               </div>
               </div>
-            </div>
-           <!--  <div class="row mt-3 mb-5">
-              <span th:errors="*{filtrosStatus}" style="color: rgb(245, 4, 4);"></span>
-            </div> -->
+          
                 <div class="row mt-3 mb-5">
                   <div class="col-4"> 
                     <label for="dataConclusao">Data de Conclusão:</label>
-                    <input type="date" class="form-control" id="dataConclusao" name="Dataconclusao"placeholder="Dataconclusao.." th:field="*{dataConclusao}" th:classppend="${#fields.hasErrors('dataConclusao') ? 'is-invalid': ''}" />
+                    <input type="date" class="form-control" id="dataConclusao" name="Dataconclusao"placeholder="Dataconclusao.." value="dataConclusao" th:field="*{dataConclusao}"  />
                   </div>
-                  <span th:errors="*{dataConclusao}" style="color: rgb(245, 4, 4);"></span>
-                </div>
+                 </div>
             
                     <button type="submit" class="btn btn-danger btn-rounded">Salvar</button>
-                    <button type="reset" class="btn btn-success btn-rounded">Limpar</button>
-                  
+                    <a th:href="@{tarefas}" class="btn btn-warning btn-rounded">Voltar</a>  
                 </div>
-                </div>
-                 
-          
-              </form>
-           </div>  
-        </div>  
-  </div>
-            <div class="row mt-2 mb-2 text-center bg-gradient">
-                  <footer>
-                    <p class="copyright">&copy; Copyright Marcelina Lima - Programa Transforme-se 2023 - Projeto final Spring Boot Java- Gerenciador de Tarefas- </p>
-                  </footer>
+              </div>
+            </form>
+
+            <div class="p-3  mt-3 mb-2 bg-secondary bg-gradient text-dark"> 
+              <div class="row mt-3 mb-5 ">
+              <footer>
+                <p class="copyright">&copy; Copyright Marcelina Lima - Programa Transforme-se 2023 - Projeto final Spring Boot Java- Gerenciador de Tarefas- </p>
+              </footer>
+              </div>
             </div>
-       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
-       
+          </div>
+        </div>
+      </div> 
+     </div>  
+    </div>  
+  </div>
+    
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
+      
 </body>
 </html>
 
