@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
- @Builder 
+@Builder 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -29,11 +29,11 @@ import lombok.ToString;
 
 public class Tarefa {
 
-   @EqualsAndHashCode.Include
-   @Getter
+  
    @Id
    @GeneratedValue( strategy = GenerationType.IDENTITY)
-   
+    @EqualsAndHashCode.Include
+   @Getter
     private Long id;
 
     @Getter
@@ -44,10 +44,7 @@ public class Tarefa {
     @Setter
     private String  status;
 
-    @Getter
-    @Setter
-    private FiltroStatus filtroStatus;
-
+    
     @Getter
     @Setter
     private LocalDate dataConclusao;
@@ -61,5 +58,10 @@ public class Tarefa {
 
     @Column(name = "ex_status", nullable = false)
     private List<FiltroStatus> filtrosStatus;
+
+
+    public FiltroStatus getFiltroStatus() {
+        return null;
+    }
 
 }

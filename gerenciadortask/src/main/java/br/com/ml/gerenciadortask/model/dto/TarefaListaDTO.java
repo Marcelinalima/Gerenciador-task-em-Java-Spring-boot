@@ -22,8 +22,7 @@ public class TarefaListaDTO {
         private String nome;
     
         private String status;
-        
-        private FiltroStatus filtroStatus;
+
 
         private LocalDate dataConclusao;
     

@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import br.com.ml.gerenciadortask.exceptions.ObjetoNaoEncontradoException;
 import br.com.ml.gerenciadortask.model.dto.TarefaDto;
 import br.com.ml.gerenciadortask.model.dto.TarefaInserirDto;
 import br.com.ml.gerenciadortask.model.dto.TarefaListaDTO;
@@ -57,8 +59,11 @@ public class TarefaService {
         public void removerPeloId(Long id) {
             repository.deleteById(id);
         }
-        public void deleteById(Long id) {
+        public Tarefa procurarPeloId(Long id) throws ObjetoNaoEncontradoException {
+            return  repository.findById(id).orElseThrow(() -> new ObjetoNaoEncontradoException("Objeto não o no banc de dados"));
+
         }
+        
     }    
         
        
