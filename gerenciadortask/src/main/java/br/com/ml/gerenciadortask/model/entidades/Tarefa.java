@@ -60,8 +60,6 @@ public class Tarefa {
     private List<FiltroStatus> filtrosStatus;
 
 
-    public FiltroStatus getFiltroStatus() {
-        return null;
-    }
+   
 
 }

@@ -33,7 +33,7 @@
               <td th:text="${tarefa.filtrosStatus}"></td>  
               <th>
                  <a th:href="@{tarefas/formulario-tarefa(id=${tarefa.id})}" class="btn btn-warning">Editar</a> 
-                 <a th:href="@{tarefas/remover(id=${tarefa.id})}" class="btn btn-danger">Excluir</a> 
+                 <a th:href="@{tarefas}" class="btn btn-danger">Voltar</a> 
               </th>
             </tr>  
           </tbody>
@@ -41,7 +41,7 @@
         <div class="p-3  mt-3 mb-2 bg-secondary bg-gradient text-dark"> 
           <div class="row mt-3 mb-5 justify-content-center">
           <footer>
-            <p class="copyright">&copy; Copyright Marcelina Lima - Programa Transforme-se 2023 - Projeto final Spring Boot Java- Gerenciador de Tarefas- </p>
+            <p class="copyright">&copy; Copyright Marcelina Lima - Programa Transforme-se 2023 - Spring Boot Java- Gerenciador de Tarefas- </p>
           </footer>
           </div>
         </div> 

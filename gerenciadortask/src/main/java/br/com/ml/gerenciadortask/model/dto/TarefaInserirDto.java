@@ -20,8 +20,6 @@ public class TarefaInserirDto {
     private String status;
     
     
-
-    
     private LocalDate dataConclusao;
 
     

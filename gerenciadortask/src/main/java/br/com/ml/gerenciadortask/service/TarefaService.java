@@ -21,19 +21,20 @@ public class TarefaService {
     private TarefaRepository repository;
 
     public TarefaDto salvar(TarefaInserirDto tarefaDto) {
-        return tarefa2TarefaDtoBuilder(
+        return tarefaTarefaDtoBuilder(
             getRepository()
             .save(
-             dto2TarefaBuilder(tarefaDto)  )
+             dtoTarefaBuilder(tarefaDto)  )
         );
     }
     public List<TarefaListaDTO> findAll() {
-        return listaTarefa2ListaTarefaListaDTO(repository.findAll());
+        return listaTarefaListaTarefaListaDTO(repository.findAll());
     }
-
-
-    private Tarefa dto2TarefaBuilder(TarefaInserirDto tarefaInserirDto){
+    
+    // Converte um DTO para uma Tarefa
+    private Tarefa dtoTarefaBuilder(TarefaInserirDto tarefaInserirDto){
             return Tarefa.builder()
+             .id(tarefaInserirDto.getId())
              .nome(tarefaInserirDto.getNome())
              .status(tarefaInserirDto.getStatus())
              .filtrosStatus(tarefaInserirDto.getFiltrosStatus())
@@ -41,18 +42,20 @@ public class TarefaService {
              .build();
 
         }
-    private TarefaDto tarefa2TarefaDtoBuilder(Tarefa tarefa){
+    //Converte uma pesquisa em uma TarefaDto   
+    private TarefaDto tarefaTarefaDtoBuilder(Tarefa tarefa){
             return TarefaDto.builder()
               .id(tarefa.getId())
+              .nome(tarefa.getNome())
               .status(tarefa.getStatus())
-              
+              .filtrosStatus(tarefa.getFiltrosStatus())
               .dataConclusao(tarefa.getDataConclusao())
               .build();
         }
-    
-        private List<TarefaListaDTO> listaTarefa2ListaTarefaListaDTO(List<Tarefa> tarefas){
+
+         private List<TarefaListaDTO> listaTarefaListaTarefaListaDTO(List<Tarefa> tarefas){
             return tarefas.stream().map(tarefa -> new TarefaListaDTO(tarefa.getId(), tarefa.getNome(),
-            tarefa.getStatus(), tarefa.getFiltroStatus(), tarefa.getDataConclusao()))
+            tarefa.getStatus(), tarefa.getDataConclusao(), tarefa.getFiltrosStatus()))
             .collect(Collectors.toList());
 
         }
@@ -60,7 +63,7 @@ public class TarefaService {
             repository.deleteById(id);
         }
         public Tarefa procurarPeloId(Long id) throws ObjetoNaoEncontradoException {
-            return  repository.findById(id).orElseThrow(() -> new ObjetoNaoEncontradoException("Objeto não o no banc de dados"));
+            return  repository.findById(id).orElseThrow(() -> new ObjetoNaoEncontradoException("Objeto não o no banco de dados"));
 
         }
         
