@@ -18,7 +18,6 @@
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Nome</th>
-              <th scope="col">Status</th>
               <th scope="col">DataConclusao</th>
               <th scope="col">FiltroStatus</th>
               <th>Ações</th>
@@ -28,12 +27,11 @@
             <tr th:each="tarefa : ${tarefas}">
               <td th:text="${tarefa.id}"></td>
               <td th:text="${tarefa.nome}"></td>
-              <td th:text="${tarefa.status}"></td>
               <td th:text="${tarefa.dataConclusao}"></td>
               <td th:text="${tarefa.filtrosStatus}"></td>  
               <th>
                  <a th:href="@{tarefas/formulario-tarefa(id=${tarefa.id})}" class="btn btn-warning">Editar</a> 
-                 <a th:href="@{tarefas}" class="btn btn-danger">Voltar</a> 
+                 <a th:href="@{tarefas/remover(id=${tarefa.id})}" class="btn btn-danger">Excluir</a> 
               </th>
             </tr>  
           </tbody>

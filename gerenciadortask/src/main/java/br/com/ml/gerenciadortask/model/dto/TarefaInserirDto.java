@@ -8,6 +8,7 @@ import br.com.ml.gerenciadortask.model.enums.FiltroStatus;
 
 import lombok.Data;
 
+
 @Data
 public class TarefaInserirDto {
 
@@ -16,14 +17,8 @@ public class TarefaInserirDto {
     
     private String nome;
     
-   
-    private String status;
-    
-    
     private LocalDate dataConclusao;
 
-    
-    
     private List<FiltroStatus> filtrosStatus = new ArrayList<>();
 
 }

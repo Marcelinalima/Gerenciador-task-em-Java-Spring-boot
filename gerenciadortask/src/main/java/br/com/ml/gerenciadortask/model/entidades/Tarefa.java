@@ -32,18 +32,13 @@ public class Tarefa {
   
    @Id
    @GeneratedValue( strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
+   @EqualsAndHashCode.Include
    @Getter
     private Long id;
 
     @Getter
     @Setter
     private String nome;
-
-    @Getter
-    @Setter
-    private String  status;
-
     
     @Getter
     @Setter
@@ -53,10 +48,10 @@ public class Tarefa {
     @Getter
     @Setter
     @ElementCollection(targetClass = FiltroStatus.class, fetch = FetchType.LAZY)
-    @JoinTable(name = "status_tarefa", joinColumns = @JoinColumn(name ="tarefa_id"))
+    @JoinTable(name = "filtroStatus_tarefa", joinColumns = @JoinColumn(name ="tarefa_id"))
     @JoinColumn(name = "tarefa_id")
 
-    @Column(name = "ex_status", nullable = false)
+    @Column(name = "ex_filtroStatus", nullable = false)
     private List<FiltroStatus> filtrosStatus;
 
 

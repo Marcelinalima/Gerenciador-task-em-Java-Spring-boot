@@ -20,28 +20,30 @@
                   <div class="row mt-3 mb-5">
                     <div class="col-8"> 
                       <label for="nome">Nome da Tarefa:</label>
-                      <input type="text"  id="nome" class="form-control" th:field="*{nome}"/>    
+                      <input type="text"  id="nome" class="form-control" th:field="*{nome}"/> 
+                      
+                      
             
                   <div class="row mt-3 mb-5">
-                    <label for="status"> Filtrar Status:</label>
+                    <label for="FiltroStatus"> Filtrar Status:</label>
                     <div class="col-8"></div>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus"  />
+                    <input class="form-check-input" type="checkbox"  name="FiltroStatus" id="filtroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).PENDENTE}"  th:field="*{filtrosStatus}" />
                     <label class="form-check-label" for="chkPendente">Pendente</label>
                   </div>
-
+                  
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus" />
+                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).PROGRESSO}"  th:field="*{filtrosStatus}" />
                     <label class="form-check-label" for="chkProgresso">Progresso</label>
                   </div>
 
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus"  />
+                    <input class="form-check-input" type="checkbox" name="FiltroStatus" id="filtroStatus" th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).CANCELADA}"  th:field="*{filtrosStatus}" />
                     <label class="form-check-label" for="chkCancelada">Cancelada</label>
                   </div>
 
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox"  name="FiltroStatus" id="chkConcluida"/>
+                    <input class="form-check-input" type="checkbox"  name="FiltroStatus" id="chkConcluida"th:value="${T(br.com.ml.gerenciadortask.model.enums.FiltroStatus).CANCELADA}"  th:field="*{filtrosStatus}"/>
                     <label class="form-check-label" for="chkConcluida">Concluida</label>
                   </div>
                </div>
@@ -54,8 +56,8 @@
                   </div>
                  </div>
             
-                    <button type="submit" class="btn btn-danger btn-rounded">Salvar</button>
-                    <a th:href="@{tarefas}" class="btn btn-warning btn-rounded">Voltar</a>  
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button href="/tarefas" class="btn btn-warning">Voltar</button>  
                 </div>
               </div>
             </form>

@@ -36,7 +36,6 @@ public class TarefaService {
             return Tarefa.builder()
              .id(tarefaInserirDto.getId())
              .nome(tarefaInserirDto.getNome())
-             .status(tarefaInserirDto.getStatus())
              .filtrosStatus(tarefaInserirDto.getFiltrosStatus())
              .dataConclusao(tarefaInserirDto.getDataConclusao())
              .build();
@@ -47,7 +46,6 @@ public class TarefaService {
             return TarefaDto.builder()
               .id(tarefa.getId())
               .nome(tarefa.getNome())
-              .status(tarefa.getStatus())
               .filtrosStatus(tarefa.getFiltrosStatus())
               .dataConclusao(tarefa.getDataConclusao())
               .build();
@@ -55,7 +53,7 @@ public class TarefaService {
 
          private List<TarefaListaDTO> listaTarefaListaTarefaListaDTO(List<Tarefa> tarefas){
             return tarefas.stream().map(tarefa -> new TarefaListaDTO(tarefa.getId(), tarefa.getNome(),
-            tarefa.getStatus(), tarefa.getDataConclusao(), tarefa.getFiltrosStatus()))
+           tarefa.getDataConclusao(), tarefa.getFiltrosStatus()))
             .collect(Collectors.toList());
 
         }

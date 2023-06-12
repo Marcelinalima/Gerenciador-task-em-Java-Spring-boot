@@ -55,9 +55,10 @@ public class TarefaController{
         if(!errors.hasErrors() && Objects.isNull(tarefa.getId())){
             TarefaDto tarefaSalva = getService().salvar(tarefa);
            tarefa.setId(tarefaSalva.getId());
-           return "redirect:/tarefas/formulario-tarefa?id=" + tarefa.getId();
+
+           return "redirect:/tarefas";
         }
-          return "form-tarefa";
+          return "redirect:/tarefas";
       }
       @GetMapping("/remover")
       public String deletar(@PathParam("id") Long id){

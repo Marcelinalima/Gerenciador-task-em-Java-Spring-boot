@@ -17,8 +17,6 @@ public class TarefaListaDTO {
        private Long id;
     
         private String nome;
-    
-        private String status;
 
         private LocalDate dataConclusao;
     

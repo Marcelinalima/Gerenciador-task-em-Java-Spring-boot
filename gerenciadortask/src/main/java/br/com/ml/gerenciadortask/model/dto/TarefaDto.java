@@ -16,9 +16,6 @@ public class TarefaDto {
 
     private String nome;
 
-    private String status;
-
-
     private LocalDate dataConclusao;
 
     private List<FiltroStatus> filtrosStatus;
