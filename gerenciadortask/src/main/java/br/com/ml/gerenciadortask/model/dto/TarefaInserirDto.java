@@ -14,8 +14,9 @@ public class TarefaInserirDto {
 
     private  Long id;
    
-    
     private String nome;
+    
+    private String filtroStatus;
     
     private LocalDate dataConclusao;
 

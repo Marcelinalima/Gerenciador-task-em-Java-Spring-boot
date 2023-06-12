@@ -52,8 +52,8 @@ public class TarefaService {
         }
 
          private List<TarefaListaDTO> listaTarefaListaTarefaListaDTO(List<Tarefa> tarefas){
-            return tarefas.stream().map(tarefa -> new TarefaListaDTO(tarefa.getId(), tarefa.getNome(),
-           tarefa.getDataConclusao(), tarefa.getFiltrosStatus()))
+            return tarefas.stream().map(tarefa -> new TarefaListaDTO(tarefa.getId(), tarefa.getNome(), tarefa.getFiltroStatus(),
+            tarefa.getDataConclusao(), null))
             .collect(Collectors.toList());
 
         }

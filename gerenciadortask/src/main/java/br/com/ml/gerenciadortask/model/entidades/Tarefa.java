@@ -29,7 +29,6 @@ import lombok.ToString;
 
 public class Tarefa {
 
-  
    @Id
    @GeneratedValue( strategy = GenerationType.IDENTITY)
    @EqualsAndHashCode.Include
@@ -42,19 +41,21 @@ public class Tarefa {
     
     @Getter
     @Setter
+    private String filtroStatus;
+
+    @Getter
+    @Setter
     private LocalDate dataConclusao;
      
 
     @Getter
     @Setter
     @ElementCollection(targetClass = FiltroStatus.class, fetch = FetchType.LAZY)
-    @JoinTable(name = "filtroStatus_tarefa", joinColumns = @JoinColumn(name ="tarefa_id"))
+    @JoinTable(name = "tarefa_status", joinColumns = @JoinColumn(name ="tarefa_id"))
     @JoinColumn(name = "tarefa_id")
 
-    @Column(name = "ex_filtroStatus", nullable = false)
+    @Column(name = "ex_Status", nullable = false)
     private List<FiltroStatus> filtrosStatus;
 
-
-   
 
 }
